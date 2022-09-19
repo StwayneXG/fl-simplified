@@ -5,6 +5,7 @@ sys.path.append(MAIN_FOLDER)
 from glob import glob
 import os
 
+import torch
 from fl_simplified.ml.model_design import Net
 
 """ Check if Global Model File Exists (If not, Create one) """
