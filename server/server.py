@@ -42,6 +42,7 @@ clients = list()
 isdone_aggregating = Event()
 
 def main(aggregation_waitcycle, timeout_delay):
+    global global_model
     global_model = initialize_global_model(GLOBAL_MODEL_PATH)
 
     """ Creating Listening Socket """
@@ -63,7 +64,8 @@ def aggregation_thread(aggregation_waitcycle, timeout_delay):
     y_test = torch.from_numpy(np.load(Y_TEST_PATH)).type(torch.LongTensor)
     test = torch.utils.data.TensorDataset(X_test,y_test)
     test_dataloader = DataLoader(test, batch_size = BATCH_SIZE, shuffle = False)
-
+    
+    global global_model
     while True:
         time.sleep(aggregation_waitcycle)
         for client in clients:
