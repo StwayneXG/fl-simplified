@@ -130,7 +130,7 @@ def client_thread(client: ClientConnected):
         client.get_info()
 
         """ Exchange Models """
-        recv_model_path = MODELS_PATH+f"model_client({client.port})({client.info['training_samples']}).pth"
+        recv_model_path = MODELS_FOLDER+f"model_client({client.port})({client.info['training_samples']}).pth"
         client.exchange_model(to_send_filename=GLOBAL_MODEL_PATH, to_save_filename=recv_model_path)
 
         """ Await Aggregation """
