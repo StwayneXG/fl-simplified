@@ -13,12 +13,12 @@ from fl_simplified.ml.model_design import Net
         global_modelpath = Path of Model """
 """ return: Global Model (newly created or loaded from file) """
 def initialize_global_model(global_modelpath: str):
-    global_model = Net()
     if os.path.exists(global_modelpath):
-        global_model = torch.load(global_modelpath)
-        return global_model
-    torch.save(global_model, global_modelpath)
-    return global_model
+        model = torch.load(global_modelpath)
+        return model
+    model = Net()
+    torch.save(model, global_modelpath)
+    return model
 
 
 """ Delete All Model Files in Folder """
