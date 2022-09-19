@@ -6,6 +6,8 @@ This repository focuses on setting up an infrastructure of Federated Learning wh
 
 Federated Learning is the technique of machine learning used to train models on edge devices rather than on cloud or a central server. This technique was proposed to highlight the problem of data privacy. People are reluctant to provide their data to companies as it could potentially have private information. This would be a huge barrier in the field of machine learning as all of it revolves around abundance of data. Federated Learning is a great solution for that as it provides insurance that no data is leaked from their devices to any company.
 
+![Animation](https://miro.medium.com/max/1400/0*IHeKZH_oFyaCjk-B.gif)
+
 ## Communication
 
 The communication part is implemented using standard socket library in Python used for the exchange of machine learning models. This part is still being worked on to make the server more robust. Events & Signals have been used to communicate between threads and cooperate with each other.
@@ -26,6 +28,7 @@ Currently, the problems I've been facing are:
 
 For further work:
 * If there is an agreement between client and server to use a specific model before connection or at the start. Best practice would be to share model parameters only, without the design as it is much safer and robust.
+* Primary testing of Client Registery, Client Selection, Client Clustering, Message Compressor, Model Co-versioning Registery ... can be done on reporsitories built upon this infrastructure. Read more about them in this research paper by Sin Kit Lo: https://arxiv.org/abs/2101.02373
 * The goal of Federated Learning is to prioritize data privacy by training the model over edge devices. But studies have shown, it is possible to extract the data a model was trained upon using the trained model. I plan to add homomorphic encryption at client side to further enhance data privacy.
 
 ## Instructions
